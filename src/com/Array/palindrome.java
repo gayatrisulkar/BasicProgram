@@ -2,39 +2,55 @@ package com.Array;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class palindrome {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		String a ="abcabaababa";
-		a.concat(a);
-	//	System.out.println(longestpalinindrome(a));
+		String a ="naman";
+		// to find how many palindrome are there in string
+		palinindrome(a);
+		// to find largest palindrome in string
+		longestPalinindrome(a);
 		
 	}
-
-	private static String longestpalindrome(String a) {
-		// TODO Auto-generated method stub
-		char[] substring=a.toCharArray();
-		ArrayList<String> substringList=new ArrayList<>(); 
-		for(int i=0;i<substring.length;i++) {
-			for(int j=1;j<substring.length;j++) {
-			   String b=a.substring(i,j);
-			   substringList.add(b);
+	// to find how many palindrome are there in string
+	private static void palinindrome(String str) {
+		int count=0;
+		for(int i=0;i<=str.length();i++) {
+			for(int j=i+1;j<=str.length();j++) {
+				//String value=str.substring(i, j);
+				//String reverse=new StringBuilder(str.substring(i, j)).reverse().toString();
+				if(str.substring(i, j).equals(new StringBuilder(str.substring(i, j)).reverse().toString())) {
+					count++;
+				}
 			}
 		}
-		ArrayList<String> substringList1=new ArrayList<>();
-		for(String value:substringList) {
-			String valuereverse=new StringBuilder(value).reverse().toString();
-			if(value==valuereverse) {
-				substringList1.add(value);
-			}
-		}
-		for(String value:substringList1) {
-			
-		}
-		return null;
+		System.out.println(count);
+		
 	}
+	// to find largest palindrome in string
+	private static void longestPalinindrome(String str) {
+		int length=0;
+		String longestPalinindrome=null;
+		for(int i=0;i<=str.length();i++) {
+			for(int j=i+1;j<=str.length();j++) {
+				//String value=str.substring(i, j);
+				//String reverse=new StringBuilder(str.substring(i, j)).reverse().toString();
+				if(str.substring(i, j).equals(new StringBuilder(str.substring(i, j)).reverse().toString())) {
+					if(length<str.substring(i, j).length()) {
+						length=str.substring(i, j).length();
+						longestPalinindrome=str.substring(i, j);
+					}
+				}
+			}
+		}
+		System.out.println(length);
+		System.out.println(longestPalinindrome);
+	}
+
+	
 
 }
