@@ -13,7 +13,7 @@ public class Basic {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+		//Array basic
 		int S[]= {1,2,3};
 		System.out.println(Arrays.toString(S));
 		System.out.println(S);
